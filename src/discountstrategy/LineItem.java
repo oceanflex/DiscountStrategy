@@ -10,18 +10,23 @@ package discountstrategy;
  * @author zsummers
  */
 public class LineItem {
+    private final double MIN_QTY = 0;
     private Product product;
     private double qty;
     private final DataAccessStrategy db;
 
     public LineItem(String prodId, double qty, DataAccessStrategy db) {
         findProduct(prodId);
-        this.qty = qty;
+        setQty(qty);
         this.db = db;
     }
 
     public void setQty(double qty) {
-        this.qty = qty;
+        if(qty >= MIN_QTY){
+            this.qty = qty;
+        }else{
+            this.qty = MIN_QTY;
+        }
     }
     
     private void findProduct (String prodId){
