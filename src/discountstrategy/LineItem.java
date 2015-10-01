@@ -10,7 +10,7 @@ package discountstrategy;
  * @author zsummers
  */
 public class LineItem {
-    private final double MIN_QTY = 0;
+    private static final double MIN_QTY = 0;
     private Product product;
     private double qty;
     private final DataAccessStrategy db;
