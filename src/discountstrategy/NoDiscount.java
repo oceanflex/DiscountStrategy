@@ -17,6 +17,9 @@ public class NoDiscount implements DiscountStrategy{
         this.setDiscountRate(0);
     }
 
+    public NoDiscount() {
+    }
+
     public double getDiscountRate() {
         return discountRate;
     }
