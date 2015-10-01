@@ -12,10 +12,12 @@ package discountstrategy;
 public class Transaction {
     private LineItem[] lineItems;
     private final String custId;
+    private final OutputStrategy output;
 
-    public Transaction(String custId) {
+    public Transaction(String custId, OutputStrategy output) {
         this.custId = custId;
         lineItems = new LineItem[0];
+        this.output = output;
     }
     
     private void addLineItem(LineItem newItem){
