@@ -21,7 +21,7 @@ public class LineItem {
         this.db = db;
     }
 
-    public void setQty(double qty) {
+    public final void setQty(double qty) {
         if(qty >= MIN_QTY){
             this.qty = qty;
         }else{
