@@ -10,7 +10,13 @@ package discountstrategy;
  * @author zsummers
  */
 public class Transaction {
-    private LineItem[] lineItems = new LineItem[0];
+    private LineItem[] lineItems;
+    private final String custId;
+
+    public Transaction(String custId) {
+        this.custId = custId;
+        lineItems = new LineItem[0];
+    }
     
     private void addLineItem(LineItem newItem){
         LineItem[] temp = new LineItem[lineItems.length+1];
