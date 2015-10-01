@@ -39,6 +39,7 @@ public class Product {
     }
 
     public void setProdId(String prodId) {
+        //needs validation
         this.prodId = prodId;
     }
 
@@ -47,6 +48,7 @@ public class Product {
     }
 
     public void setName(String name) {
+        //needs validation
         this.name = name;
     }
 
@@ -55,6 +57,7 @@ public class Product {
     }
 
     public void setDiscount(DiscountStrategy discount) {
+        //needs validation
         this.discount = discount;
     }
     //test main method

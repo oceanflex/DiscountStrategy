@@ -12,15 +12,16 @@ package discountstrategy;
 public class LineItem {
     private Product product;
     private double qty;
+    private DataAccessStrategy db;
 
-    public LineItem(Product product, double qty) {
-        this.product = product;
+    public LineItem(String prodId, double qty, DataAccessStrategy db) {
+        findProduct(prodId);
         this.qty = qty;
+        this.db = db;
     }
     
     private void findProduct (String prodId){
-        
-       // this.product = ;
+        this.product = db.findProduct(prodId);
     }
     
 }
