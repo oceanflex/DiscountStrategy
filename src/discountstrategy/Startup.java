@@ -13,8 +13,14 @@ public class Startup {
     
     public static void main(String[] args) {
         String custId = "100";
+        String[] prodIds = {"A101","C222"};
         DataAccessStrategy db = new FakeDatabase();
-        
+        OutputStrategy receipt = new Receipt();
+        Register register = new Register(db);
+        register.newTransaction(custId, receipt);
+        register.addItem(prodIds[0], 2);
+        register.addItem(prodIds[1], 1);
+        register.endTransaction();
         //String 
         
     }

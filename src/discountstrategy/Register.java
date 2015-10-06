@@ -36,11 +36,11 @@ public class Register {
         transaction = new Transaction(custId, output);
     }
     
-    private void addItem(String prodId, int qty){
+    public final void addItem(String prodId, int qty){
         transaction.addItem(prodId, qty, this.db);
     }
     
-//    public void addItems(String[] prodIds){
+//    public void addItems(String[] prodIds, int[] qty){
 //        for(String s:prodIds){
 //        this.addItem(s);
 //        }
@@ -48,6 +48,7 @@ public class Register {
     
     public final void endTransaction(){
         transaction.output();
+        //transaction = null;
     }
     
 }
