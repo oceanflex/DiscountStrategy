@@ -20,7 +20,12 @@ public class Transaction {
         this.output = output;
     }
     
-    public final void addLineItem(LineItem newItem){
+    public void addItem(String prodId, int qty, DataAccessStrategy db){
+        LineItem temp = new LineItem(prodId, qty, db);
+        this.addLineItem(temp);
+    }
+    
+    private final void addLineItem(LineItem newItem){
         LineItem[] temp = new LineItem[lineItems.length];
         System.arraycopy(lineItems, 0, temp, 0, lineItems.length-1);
         temp[lineItems.length-1] = newItem;

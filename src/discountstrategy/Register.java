@@ -36,15 +36,15 @@ public class Register {
         transaction = new Transaction(custId, output);
     }
     
-    private void addItem(LineItem item){
-        transaction.addLineItem(item);
+    private void addItem(String prodId, int qty){
+        transaction.addItem(prodId, qty, this.db);
     }
     
-    public void addItems(LineItem[] items){
-        for(LineItem l:items){
-        this.addItem(l);
-        }
-    }
+//    public void addItems(String[] prodIds){
+//        for(String s:prodIds){
+//        this.addItem(s);
+//        }
+//    }
     
     public final void endTransaction(){
         transaction.output();
