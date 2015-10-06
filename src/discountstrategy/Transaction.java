@@ -28,6 +28,9 @@ public class Transaction {
     }
     
     public void output(){
-        output.write();
+        output.writeCustomer(custId);
+        for(LineItem l : lineItems){
+        output.writeLine(l.writeItem());
+        }
     }
 }

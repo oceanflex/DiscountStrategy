@@ -10,10 +10,25 @@ package discountstrategy;
  * @author zsummers
  */
 public class Receipt implements OutputStrategy{
+    
+    private String theOutput;
+    private DataAccessStrategy db;
 
     @Override
-    public void write() {
+    public void writeLine(String[] args) {
         
+        
+        for (String out : args){
+            System.out.println(out);
+        }
+        
+        
+    }
+
+    @Override
+    public void writeCustomer(String custId) {
+        
+        System.out.println("Sold to: "+ db.findCustomer(custId));
     }
     
 }

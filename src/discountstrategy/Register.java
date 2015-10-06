@@ -26,6 +26,12 @@ public class Register {
         transaction.addLineItem(item);
     }
     
+    public void addItems(LineItem[] items){
+        for(LineItem l:items){
+        this.addItem(l);
+        }
+    }
+    
     public final void endTransaction(){
         transaction.output();
     }

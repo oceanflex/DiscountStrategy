@@ -10,5 +10,6 @@ package discountstrategy;
  * @author zsummers
  */
 public interface OutputStrategy {
-    public void write();
+    public void writeLine(String[] s);
+    public void writeCustomer(String custId);
 }
