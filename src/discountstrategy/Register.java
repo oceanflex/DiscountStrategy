@@ -10,12 +10,26 @@ package discountstrategy;
  * @author zsummers
  */
 public class Register {
-    private Customer customer;
+    private String custId;
     private Transaction transaction;
+    private DataAccessStrategy db;
 
-    public Register(Customer customer, Transaction transaction) {
-        this.customer = customer;
+    public Register(DataAccessStrategy db) {
+        this.db = db;
+    }
+
+    public void setCustomer(String custId) {
+        this.custId = custId;
+    }
+
+    public Register(DataAccessStrategy db, String custId, Transaction transaction) {
+        this.db = db;
+        this.custId = custId;
         this.transaction = transaction;
+    }
+    
+    public final void newTransaction(OutputStrategy output){
+        transaction = new Transaction(this.custId, output);
     }
     
     public final void newTransaction(String custId, OutputStrategy output){
