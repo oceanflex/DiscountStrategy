@@ -21,7 +21,7 @@ public class Customer {
         this.rewardPoints = STARTING_POINTS;
     }
 
-    public String getCustID() {
+    public String getCustId() {
         return custID;
     }
 
