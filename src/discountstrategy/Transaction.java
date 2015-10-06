@@ -20,10 +20,14 @@ public class Transaction {
         this.output = output;
     }
     
-    private void addLineItem(LineItem newItem){
+    public final void addLineItem(LineItem newItem){
         LineItem[] temp = new LineItem[lineItems.length];
         System.arraycopy(lineItems, 0, temp, 0, lineItems.length-1);
         temp[lineItems.length-1] = newItem;
         lineItems = temp;
+    }
+    
+    public void output(){
+        output.write();
     }
 }
