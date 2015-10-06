@@ -16,9 +16,10 @@ public class LineItem {
     private final DataAccessStrategy db;
 
     public LineItem(String prodId, double qty, DataAccessStrategy db) {
-        findProduct(prodId);
+         this.db = db;
+         findProduct(prodId);
         setQty(qty);
-        this.db = db;
+       
     }
 
     public final void setQty(double qty) {

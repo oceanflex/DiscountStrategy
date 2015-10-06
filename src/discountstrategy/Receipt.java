@@ -14,6 +14,10 @@ public class Receipt implements OutputStrategy{
     private String theOutput;
     private DataAccessStrategy db;
 
+    public Receipt(DataAccessStrategy db) {
+        this.db = db;
+    }
+
     @Override
     public void writeLine(String[] args) {
         

@@ -15,7 +15,7 @@ public class Startup {
         String custId = "100";
         String[] prodIds = {"A101","C222"};
         DataAccessStrategy db = new FakeDatabase();
-        OutputStrategy receipt = new Receipt();
+        OutputStrategy receipt = new Receipt(db);
         Register register = new Register(db);
         register.newTransaction(custId, receipt);
         register.addItem(prodIds[0], 2);

@@ -28,7 +28,7 @@ public class QtyDiscount implements DiscountStrategy{
     
     public double getDiscountAmt(double unitPrice, double qty){
         if(qty>=minQty){
-                    return unitPrice * qty * discountRate;
+                    return (unitPrice * qty * discountRate);
         }else{
             return 0;
         }
