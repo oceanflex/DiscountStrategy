@@ -5,6 +5,8 @@
  */
 package discountstrategy;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author zsummers
@@ -43,17 +45,18 @@ public class LineItem {
     }
     
     public String[] writeItem(){
+        NumberFormat money = NumberFormat.getCurrencyInstance();
         String id = product.getProdId();
         String name = product.getName();
-        String Quantity;
+        String quantity;
         if (this.qty == (int)this.qty){
-        Quantity = "" + (int)this.qty;
+        quantity = "" + (int)this.qty;
         }else{
-            Quantity = "" + this.qty;
+            quantity = "" + this.qty;
         }
-        String cost = "$"+ this.getCost();
-        String discount ="$"+ this.getDiscount();
-        String[] back = {id, name, cost, Quantity, discount};
+        String cost = money.format(this.getCost());
+        String discount =money.format(this.getDiscount());
+        String[] back = {id, name, cost, quantity, discount};
         return back;
     }
     
