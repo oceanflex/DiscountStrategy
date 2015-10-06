@@ -36,6 +36,8 @@ public class Transaction {
         output.writeCustomer(custId);
         for(LineItem l : lineItems){
         output.writeLine(l.writeItem());
+        //output.updateTotals(lineItems[l].getCost());
         }
+        output.writeTotals();
     }
 }

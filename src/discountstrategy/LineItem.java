@@ -34,12 +34,20 @@ public class LineItem {
         this.product = db.findProduct(prodId);
     }
     
+    public double getDiscount(){
+        return product.getDiscountAmt(this.qty);
+    }
+    
+    public double getCost(){
+        return (product.getUnitPrice() * this.qty);
+    }
+    
     public String[] writeItem(){
         String id = product.getProdId();
         String name = product.getName();
         String Quantity = "$"+ this.qty;
-        String cost = "$"+(product.getUnitPrice() * this.qty);
-        String discount ="$"+ product.getDiscountAmt(this.qty);
+        String cost = "$"+ this.getCost();
+        String discount ="$"+ this.getDiscount();
         String[] back = {id, name, cost, Quantity, discount};
         return back;
     }

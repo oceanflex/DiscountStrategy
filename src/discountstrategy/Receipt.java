@@ -13,6 +13,7 @@ public class Receipt implements OutputStrategy{
     
     private String theOutput;
     private DataAccessStrategy db;
+    private Customer customer;
 
     public Receipt(DataAccessStrategy db) {
         this.db = db;
@@ -31,8 +32,19 @@ public class Receipt implements OutputStrategy{
 
     @Override
     public void writeCustomer(String custId) {
-        
         System.out.println("Sold to: "+ db.findCustomer(custId));
     }
+
+    @Override
+    public void updateTotals(double[] in) {
+        
+    }
+
+    @Override
+    public void writeTotals() {
+        
+    }
+    
+    
     
 }

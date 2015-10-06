@@ -46,5 +46,10 @@ public class Customer {
         return pointsUsed;
     }
     
+    @Override
+    public String toString(){
+        return this.name +" Customer ID: "+ this.custID;
+    }
+    
     
 }
