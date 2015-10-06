@@ -11,6 +11,8 @@ package discountstrategy;
  * @author  Jim Lombardo
  * @version 1.00
  */
+
+//needs to be replaced by my own implementation
 public class FakeDatabase implements DataAccessStrategy {
 //    private ICustomer[] customers = {
 //        new Customer("100", "John Smith"),

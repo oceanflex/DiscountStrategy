@@ -21,9 +21,9 @@ public class Transaction {
     }
     
     private void addLineItem(LineItem newItem){
-        LineItem[] temp = new LineItem[lineItems.length+1];
-        System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
-        temp[lineItems.length] = newItem;
+        LineItem[] temp = new LineItem[lineItems.length];
+        System.arraycopy(lineItems, 0, temp, 0, lineItems.length-1);
+        temp[lineItems.length-1] = newItem;
         lineItems = temp;
     }
 }
