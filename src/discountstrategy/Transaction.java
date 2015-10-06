@@ -36,6 +36,9 @@ public class Transaction {
         output.writeCustomer(custId);
         for(LineItem l : lineItems){
         output.writeLine(l.writeItem());
+        //attempting to add functionality to Transaction
+        //double discount;
+        //discount = lineItems[l].getDiscount();
         //output.updateTotals(lineItems[l].getCost());
         }
         output.writeTotals();

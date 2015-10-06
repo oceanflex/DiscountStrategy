@@ -14,9 +14,13 @@ public class Receipt implements OutputStrategy{
     private String theOutput;
     private DataAccessStrategy db;
     private Customer customer;
+    private double totalCost;
+    private double totalDiscount;
 
     public Receipt(DataAccessStrategy db) {
         this.db = db;
+        this.totalCost = 0.0;
+        this.totalDiscount = 0.0;
     }
 
     @Override
@@ -36,8 +40,9 @@ public class Receipt implements OutputStrategy{
     }
 
     @Override
-    public void updateTotals(double[] in) {
-        
+    public void addToTotals(double cost, double discount) {
+        this.totalCost += cost;
+        this.totalDiscount += discount;
     }
 
     @Override
