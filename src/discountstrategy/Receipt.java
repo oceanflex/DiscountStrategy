@@ -26,11 +26,11 @@ public class Receipt implements OutputStrategy{
     @Override
     public void writeLine(String[] args) {
         
-        
-        for (String out : args){
-            System.out.println(out);
+        StringBuilder out = new StringBuilder("");
+        for (String temp : args){
+            out.append(temp + "\t");
         }
-        
+        System.out.println(out);
         
     }
 

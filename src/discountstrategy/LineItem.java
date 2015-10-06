@@ -45,7 +45,12 @@ public class LineItem {
     public String[] writeItem(){
         String id = product.getProdId();
         String name = product.getName();
-        String Quantity = "$"+ this.qty;
+        String Quantity;
+        if (this.qty == (int)this.qty){
+        Quantity = "" + (int)this.qty;
+        }else{
+            Quantity = "" + this.qty;
+        }
         String cost = "$"+ this.getCost();
         String discount ="$"+ this.getDiscount();
         String[] back = {id, name, cost, Quantity, discount};
