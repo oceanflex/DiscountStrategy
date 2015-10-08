@@ -25,7 +25,8 @@ public class FakeDatabase implements DataAccessStrategy {
     private Product[] products = {
         new Product("A101", "MLB Brewer's Hat ", 19.95, new PercentOffDiscount(0.15)),
         new Product("B205", "Men's Dress Shirt", 35.50, new QtyDiscount(.10,5)),
-        new Product("C222", "Women's Socks    ", 9.50, new NoDiscount())
+        new Product("C222", "Women's Socks    ", 9.50, new NoDiscount()),
+        new Product("B225", "Men's Socks      ", 8.50, new NoDiscount())
     };
     
     /**
