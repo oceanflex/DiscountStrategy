@@ -12,7 +12,7 @@ import java.text.NumberFormat;
  * @author zsummers
  */
 public class Receipt implements OutputStrategy{
-    
+    private static double TAX_RATE = 0.055;
     private String theOutput;
     private DataAccessStrategy db;
     private Customer customer;
@@ -50,11 +50,15 @@ public class Receipt implements OutputStrategy{
     @Override
     public void writeTotals() {
         NumberFormat money = NumberFormat.getCurrencyInstance();
-        System.out.println("\t\t\t\t Cost:\t\t"+ money.format(totalCost)+
-                "\n\t\t\t\t Discount:\t"+money.format(totalDiscount)+
-                "\n\t\t\t\t Tax:\t\t" + money.format(totalCost * 0.056)+
-                "\n\t\t\t\t Total Due:\t"+
-                money.format((totalCost-totalDiscount)+(totalCost*0.056)));
+        StringBuilder print = new StringBuilder();
+        double netCost = totalCost - totalDiscount;
+        double taxDue = (totalCost - totalDiscount) * TAX_RATE;
+        String evenStart = "\n\t\t\t\t";
+        String totals =(evenStart+"Cost:\t\t"+ money.format(totalCost)+
+                evenStart+"Saved:\t\t"+money.format(totalDiscount)+
+                evenStart+"Tax:\t\t" + money.format(taxDue)+
+                evenStart+"Total Due:\t"+ money.format(netCost+taxDue));
+        System.out.println(totals);
     }
     
     
