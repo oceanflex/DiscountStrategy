@@ -12,7 +12,7 @@ import java.text.NumberFormat;
  * @author zsummers
  */
 public class Receipt implements OutputStrategy{
-    private static double TAX_RATE = 0.055;
+    private static final double TAX_RATE = 0.055;
     private String theOutput;
     private DataAccessStrategy db;
     private Customer customer;
