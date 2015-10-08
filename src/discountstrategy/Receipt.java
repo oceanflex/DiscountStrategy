@@ -54,10 +54,14 @@ public class Receipt implements OutputStrategy{
         double netCost = totalCost - totalDiscount;
         double taxDue = (totalCost - totalDiscount) * TAX_RATE;
         String evenStart = "\n\t\t\t\t";
-        String totals =(evenStart+"Cost:\t\t"+ money.format(totalCost)+
+        String breaker = "------\t------\t------";
+        String totals =(evenStart+breaker+
+                evenStart+"Cost:\t\t"+ money.format(totalCost)+
                 evenStart+"Saved:\t\t"+money.format(totalDiscount)+
                 evenStart+"Tax:\t\t" + money.format(taxDue)+
-                evenStart+"Total Due:\t"+ money.format(netCost+taxDue));
+                evenStart+breaker+
+                evenStart+"Total Due:\t"+ money.format(netCost+taxDue)+
+                evenStart+breaker);
         System.out.println(totals);
     }
     
