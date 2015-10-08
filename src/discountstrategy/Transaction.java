@@ -23,6 +23,7 @@ public class Transaction {
     public void addItem(String prodId, int qty, DataAccessStrategy db){
         LineItem temp = new LineItem(prodId, qty, db);
         this.addLineItem(temp);
+        output.addToTotals(temp.getCost(), temp.getDiscount());
     }
     
     private final void addLineItem(LineItem newItem){

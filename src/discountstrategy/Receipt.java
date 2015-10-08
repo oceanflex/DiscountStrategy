@@ -5,6 +5,8 @@
  */
 package discountstrategy;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author zsummers
@@ -24,10 +26,10 @@ public class Receipt implements OutputStrategy{
     }
 
     @Override
-    public void writeLine(String[] args) {
+    public void writeLine(String[] line) {
         
         StringBuilder out = new StringBuilder("");
-        for (String temp : args){
+        for (String temp : line){
             out.append(temp + "\t");
         }
         System.out.println(out);
@@ -47,7 +49,12 @@ public class Receipt implements OutputStrategy{
 
     @Override
     public void writeTotals() {
-        
+        NumberFormat money = NumberFormat.getCurrencyInstance();
+        System.out.println("\t\t\t\t Cost:\t\t"+ money.format(totalCost)+
+                "\n\t\t\t\t Discount:\t"+money.format(totalDiscount)+
+                "\n\t\t\t\t Tax:\t\t" + money.format(totalCost * 0.056)+
+                "\n\t\t\t\t Total Due:\t"+
+                money.format((totalCost-totalDiscount)+(totalCost*0.056)));
     }
     
     
