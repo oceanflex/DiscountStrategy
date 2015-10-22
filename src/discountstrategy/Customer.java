@@ -29,12 +29,17 @@ public class Customer {
         return name;
     }
 
-    public int getRewardPoints() {
+    public int getRewardPoints(){
         return rewardPoints;
     }
     public void addPoints(int toAdd){
         rewardPoints += toAdd;
     }
+    /**
+     * 
+     * @param toUse
+     * @return return will be true, unless an exception occurs, calling class should catch
+     */
     public boolean usePoints(int toUse){
         boolean pointsUsed;
         if(toUse>=this.rewardPoints){

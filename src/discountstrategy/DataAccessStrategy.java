@@ -5,6 +5,8 @@
  */
 package discountstrategy;
 
+import java.io.FileNotFoundException;
+
 /**
  *
  * @author zsummers
@@ -22,7 +24,8 @@ public interface DataAccessStrategy {
      * Tries to find a Proudct by product id.
      * @param prodId - must not be null or empty
      * @return found Product or null if not found or bad argument
+     * @throws java.io.FileNotFoundException if there is no product by that ID
      */
-    Product findProduct(final String prodId);
+    Product findProduct(final String prodId)throws FileNotFoundException;
     
 }

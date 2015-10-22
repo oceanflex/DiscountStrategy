@@ -14,4 +14,5 @@ public interface OutputStrategy {
     public void writeLine(String[] s);
     public void writeCustomer(String custId);
     public void writeTotals();
+    public void writeError(Exception ex);
 }

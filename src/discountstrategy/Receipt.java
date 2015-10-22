@@ -64,6 +64,11 @@ public class Receipt implements OutputStrategy{
                 evenStart+breaker);
         System.out.println(totals);
     }
+
+    @Override
+    public void writeError(Exception ex) {
+        System.out.println(ex.getMessage());
+    }
     
     
     

@@ -5,6 +5,8 @@
  */
 package discountstrategy;
 
+import java.io.FileNotFoundException;
+
 /**
  *
  * @author zsummers
@@ -36,8 +38,16 @@ public class Register {
         transaction = new Transaction(custId, output);
     }
     
-    public final void addItem(String prodId, int qty){
-        transaction.addItem(prodId, qty, this.db);
+    public final void addItem(String prodId, int qty) {
+        try {
+            transaction.addItem(prodId, qty, this.db);
+        } catch (FileNotFoundException | NullPointerException ex) {
+            if(ex.getMessage()==null||ex.getMessage().isEmpty()){
+                System.out.println("product id invalid");
+            }
+            System.out.println(ex.getMessage());
+            //Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 //    public void addItems(String[] prodIds, int[] qty){
@@ -47,7 +57,8 @@ public class Register {
 //    }
     
     public final void endTransaction(){
-        transaction.output();
+            transaction.output();
+        
         //transaction = null;
     }
     

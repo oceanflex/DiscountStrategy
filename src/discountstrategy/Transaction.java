@@ -5,6 +5,10 @@
  */
 package discountstrategy;
 
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author zsummers
@@ -20,8 +24,13 @@ public class Transaction {
         this.output = output;
     }
     
-    public void addItem(String prodId, int qty, DataAccessStrategy db){
-        LineItem temp = new LineItem(prodId, qty, db);
+    public void addItem(String prodId, int qty, DataAccessStrategy db) {
+        LineItem temp = null;
+        try {
+            temp = new LineItem(prodId, qty, db);
+        } catch (FileNotFoundException ex) {
+            output.writeError(ex);
+        }
         this.addLineItem(temp);
         output.addToTotals(temp.getCost(), temp.getDiscount());
     }
@@ -36,7 +45,11 @@ public class Transaction {
     public void output(){
         output.writeCustomer(custId);
         for(LineItem l : lineItems){
-        output.writeLine(l.writeItem());
+            try{
+                output.writeLine(l.writeItem());
+            }catch(NullPointerException npe){
+            output.writeError(npe);
+            }
         //attempting to add totaling functionality to Transaction
         //double discount;
         //discount = lineItems[l].getDiscount();

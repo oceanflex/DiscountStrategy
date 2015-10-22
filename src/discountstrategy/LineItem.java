@@ -5,6 +5,7 @@
  */
 package discountstrategy;
 
+import java.io.FileNotFoundException;
 import java.text.NumberFormat;
 
 /**
@@ -17,7 +18,7 @@ public class LineItem {
     private double qty;
     private final DataAccessStrategy db;
 
-    public LineItem(String prodId, double qty, DataAccessStrategy db) {
+    public LineItem(String prodId, double qty, DataAccessStrategy db)throws FileNotFoundException {
          this.db = db;
          findProduct(prodId);
         setQty(qty);
@@ -32,7 +33,7 @@ public class LineItem {
         }
     }
     
-    private void findProduct (String prodId){
+    private void findProduct (String prodId)throws FileNotFoundException{
         this.product = db.findProduct(prodId);
     }
     
@@ -44,7 +45,7 @@ public class LineItem {
         return (product.getUnitPrice() * this.qty);
     }
     
-    public String[] writeItem(){
+    public String[] writeItem()throws NullPointerException{
         NumberFormat money = NumberFormat.getCurrencyInstance();
         String id = product.getProdId();
         String name = product.getName();

@@ -1,5 +1,7 @@
 package discountstrategy;
 
+import java.io.FileNotFoundException;
+
 /**
  * This class provides a temporary solution to the question of where is the
  * long-time data stored. In a real application, a database would be used, 
@@ -60,12 +62,11 @@ public class FakeDatabase implements DataAccessStrategy {
      * @return found Product or null if not found or bad argument
      */
     @Override
-    public final Product findProduct(final String prodId) {
+    public final Product findProduct(final String prodId)throws FileNotFoundException {
         // validation is needed for method parameter
         if(prodId == null || prodId.length() == 0) {
-            System.out.println("Sorry, FakeDatabase.findProduct method has "
+            throw new FileNotFoundException("Sorry, FakeDatabase.findProduct method has "
                     + "illegal argument");
-            return null;  // end method prematurely after log to console
         }
         
         Product product = null;
